@@ -1498,14 +1498,15 @@ def generate_conjectures():
 
     invariant_column = rows_multi_radio('### Select categories to conjecture on (the more you select the longer TxGraffiti will take to learn):', callables)
 
-    if "cartesian" in invariant_column[0]:
-        invariants = [x for x in invariants if "cartesian" not in x]
-    elif "lexicographic" in invariant_column[0]:
-        invariants = [x for x in invariants if "lexicographic" not in x]
-    elif "strong" in invariant_column[0]:
-        invariants = [x for x in invariants if "strong" not in x]
-    elif "tensor" in invariant_column[0]:
-        invariants = [x for x in invariants if "tensor" not in x]
+    if invariant_column:
+        if "cartesian" in invariant_column[0]:
+            invariants = [x for x in invariants if "cartesian" not in x]
+        elif "lexicographic" in invariant_column[0]:
+            invariants = [x for x in invariants if "lexicographic" not in x]
+        elif "strong" in invariant_column[0]:
+            invariants = [x for x in invariants if "strong" not in x]
+        elif "tensor" in invariant_column[0]:
+            invariants = [x for x in invariants if "tensor" not in x]
     # removal_invariants = multi_radio('### Exclude any invariants?', numerical_columns)
     # invariant_column = [invariant for invariant in invariant_column if invariant not in removal_invariants]
 
